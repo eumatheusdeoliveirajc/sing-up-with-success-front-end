@@ -10,25 +10,25 @@
 :root{
     --background-body: #36384d;
     --background-buttons: #232742;
-    --background-buttons-hover: linear-gradient(to right, #fe5278, #ff693c);
+    --background-buttons-hover: #ff693c;
 }
 body{
     font-family: 'roboto-regular', sans-serif;
     background-color: var(--background-body);
-    display: flex;
-    flex-direction: column;
+    margin: 0px;
 }
 main{
     background-color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 1000px;
+    max-width: 820px;
     margin: 100px auto;
     border-radius: 20px;
     padding: 1rem;
 }
 #newsletter{
+    padding-left: 2rem;
     padding-right: 1rem;
 }
 #newsletter > h1{
@@ -39,14 +39,56 @@ main{
 #newsletter > p{
     max-width: 400px;
 }
-
-
+#newsletter ul{
+    list-style: none;
+    padding: 10px 0px;
+}
+#newsletter ul > li{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0px;
+}
+.email-caption{
+    font-size: 0.8rem;
+    color: var(--background-buttons);
+    font-family: 'roboto-bold';
+}
+#email{
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    outline: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+#email:focus{
+    outline: 1px solid rgb(0, 0, 0, 1);
+    border: none;
+}
+#submit{
+    background-color: var(--background-buttons);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 320px;
+    height: 50px;
+    margin-top: 10px;
+    font-family: 'roboto-bold';
+    cursor: pointer;
+    transition: all 0.4s;
+}
+#submit:hover{
+    background-color: var(--background-buttons-hover);
+}
 #conteiner{
     background-color: #fff;
     max-width: 370px;
     padding: 2rem;
     border-radius: 20px;
-    margin: 200px auto;
+    margin: 150px auto;
 }
 #conteiner h1{
     font-size: 2.8rem;
@@ -55,16 +97,121 @@ main{
 #conteiner img{
     width: 50px;
 }
+#conteiner p{
+    line-height: 25px;
+    padding-bottom: 2rem;
+}
+#conteiner strong{color: var(--background-buttons);}
 #conteiner a{
     display: block;
     background-color: var(--background-buttons);
     color: #fff;
     font-weight: 700;
-    padding: 1rem;
+    padding: 1.2rem;
     font-size: 1rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.4s;
 }
-
-.attribution { font-size: 1rem; text-align: center; padding-top: 2.4rem;}
-.attribution a { color: hsl(228, 45%, 44%); }
+#conteiner a:hover{
+    background-color: var(--background-buttons-hover);
+}
+.attribution {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    padding-top: 1rem;
+}
+.attribution a { color: var(--background-buttons-hover); }
+.footer-mobile{display: none;}
+@media (max-width: 900px) {
+    main{
+        flex-direction: column-reverse;
+        max-width: 700px;
+        align-items: center;
+        padding: 0px;
+    }
+    picture{
+        width: 100%;
+    }
+    picture > img{
+        border-radius: 19px 19px 0px 0px;
+        width: 100%;
+    }
+    #newsletter{
+        padding: 0rem;
+    }
+    form {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       position: relative;
+       padding-top: 1.8rem;
+       padding-bottom: 1.8rem;
+    }
+    .email-caption{
+        position: absolute;
+        top: 0px;
+        left: 40px;
+    }
+    #submit, #conteiner a{transition: all 0s;}
+    #submit:hover{
+        background-color: var(--background-buttons);
+    }
+    #submit:active{
+        background-color: var(--background-buttons-hover);
+    }
+    #conteiner a:hover{
+        background-color: var(--background-buttons);
+    }
+    #conteiner a:active{
+        background-color: var(--background-buttons-hover);
+    }
+}
+@media (max-width: 700px) {
+    main{
+        max-width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border-radius: 0px;
+        padding-bottom: 50px;
+    }
+    #newsletter{
+        padding: 10px;
+    }
+    picture > img{
+        border-radius: 0px;
+    }
+}
+@media (max-width: 480px) {
+    #conteiner{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 100vw;
+        height: 100vh;
+        margin: 0px;
+        border-radius: 0px;
+    }
+    .attribution{
+        flex-direction: column;
+        gap: 0px;
+    }
+    .attribution p{margin: 10px;}
+}
+@media (max-width: 420px) {
+    .email-caption{left: 0px;}
+    form{
+        max-width: 300px;
+        margin: 0px auto;
+    }
+    #email{width: 270px;}
+    #submit{width: 290px;}
+}
